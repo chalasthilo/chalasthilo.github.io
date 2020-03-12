@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Le Binaire</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h6 class="Webs_Header">Site web de Thilo Chalas</h6>
+        <h1 class="Page_Header">Le Binaire</h1>
+        <div class="Infos_Bodytxt">
+            <h2>Bases numeriques</h2>
+            <p> Le binaire est un systeme numerique aussi connu sous le nom base 2. Cela veut dire que l'on peut utiliser
+                deux caracteres differents pour ecrire un nombre (le 0 et le 1) contrairement au systeme decimal (base 10) qui peut 
+                en utiliser 10 (0,1,2,3,4,5,6,7,8,9). Lorsqu'on compte en base 10 on incremente la valeur des unites jusqu'a 
+                9 puis on incremente les dizaines et le 9 devient un 0: 8=>(0)9=>10. A chaque fois que le chiffre le plus a 
+                gauche atteint 9, on ajoute un nouveau chiffre a incrementer devant tous les autres. C'est le binaire non-signe.
+            </p>
+            <h3>Equivalences base2-base10</h3>
+            <img src="Images/binary-decimal.jpg">
+            <h2>Le binaire signe</h2>
+            <p>Afin de pouvoir representer des nombres negatifs en binaire il faut:</p>
+            <ul>
+                <li>Choisir le nombre de bits (=chiffres) qu'on va utiliser (avec 8 bits on pourra aleer de -128 a 128)</li>
+                <li>Mettre des 0 devant le chiffre en binaire non-signe qui est negatif: ex: pour 21 sur 8 bits => 21b10=10101b2 => 00010101</li>
+                <li>Remplacer tous les 0 par des 1 et tous les 1 par des 0: ex: 00010101 => 11101010</li>
+                <li>Ajouter 1 a la valeur obtenue (les regles d'addition sont les memes qu'en decimal): ex: 11101010 + 00000001 = 11101011</li>
+                <li>On obtient ainsi le nombre -21 en binaire signe</li>
+                <li>Si on additionne 21 et -21 en binaire signe on a: 00010101 + 11101011 = (1)00000000 = 00000000 le 1 se trouvant au debut disparait car il est le 9e bit et on est sur 8 bits (c'est l'<a href="https://en.wikipedia.org/wiki/Integer_overflow">overflow</a>)</li>
+            </ul>
+            <h2>Les nombres a virgule et la norme IEEE754</h2>
+            <p>La norme IEEE754 permet de representer (plus ou moins bien) les nombres a virgule en binaire. Explication de la norme IEEE754:</p>
+            <div class="videocontainer">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mtizhxkB-Zw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="ytvid"></iframe>
+            </div>
+        </div>
+        <h4 class="h4">Liens:</h4>
+        <center>
+            <div class="menu">
+                <button class="links"><a href="index.html">Accueuil</a></button>
+                <div class="linkbox_a">
+                    <a href="infos_perso.html">Infos perso</a>
+                    <a href="rapport.html" class="rpprt">Rapport</a>
+                    <div class="menu2">
+                        <button class="projlinks"><a href="projets.html" class="projlinks">Projets</a></button>
+                        <div class="linkbox_proj">
+                            <a href="plantes_fractales.html">Plantes Fractales</a>
+                            <a href="binaire.html">Le Binaire</a>
+                            <a href="algo_tri.html">Algorithmes de Tri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <h1 class="btmpad"> . </h1>
+    </body>
+</html>

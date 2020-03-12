@@ -1,0 +1,271 @@
+/*Page entiere*/
+* {
+    font-style: normal;    
+}
+
+body {
+    background: url(Images/background.gif);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: red
+}
+
+/*Titres*/
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 56px
+}
+
+h2 {
+    color: white;
+    margin: 20px 50px;
+}
+
+h3 {
+    color: white;
+}
+
+.h4 {
+    color: white;
+    max-width: 1024px;
+    margin: 25px auto;
+    margin-bottom: 10px;
+}
+
+.projets_h4 {
+    color: white;
+    margin: 25px auto;
+    margin-bottom: 10px;
+}
+
+h6 {
+    color: lightblue;
+    font-size: 9px;
+    margin: 0; 
+}
+
+/*Texte*/
+
+p {
+    color: rgb(153, 153, 153);
+}
+
+ul {
+    color: rgb(153, 153, 153);
+    max-width: 1024px;
+    margin: auto;
+}
+
+.rapprt {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 50px;
+}
+
+/*Liens*/
+
+a {
+    color: rgb(202, 202, 202);
+}
+
+a:hover {
+    color: rgb(0, 191, 255);
+}
+
+/*Images/Videos*/
+
+img {
+    margin:auto;
+}
+
+.imagehover:hover:after {
+    content: url(Images/IMG_0333.jpg);
+    display: block;
+    position: absolute;
+    right: 200px;
+    top: 650px;
+}
+
+.imagehover2:hover:after {
+    content: url(Images/IMG_4031.jpg) ;
+    display: block;
+    position: absolute;
+    right: 200px;
+    top: 650px;
+}
+
+/*Placement*/
+
+.ImageCol {
+    float: left;
+    padding: 0px;
+    border: 5px solid lightblue;
+
+}
+
+.TxtCol {
+    float: left;
+    padding: 5px;
+    width: 450px;
+    text-align: justify;
+    font-size: 18px;
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.Infos_Bodytxt {
+    max-width: 1024px;
+    text-align: justify;
+    margin: auto;
+}
+
+.videocontainer {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+}
+
+.ytvid {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.doccontainer {
+    position: relative;
+    width: 75%;
+    height: 0;
+    padding-bottom: 75%;
+}
+
+.docs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.photo_rapport {
+    max-width: 512px;
+}
+
+/*Animations*/
+
+.row:hover{
+    background: rgba(57, 172, 243, 0);
+    animation-name: colorchange;
+    animation-duration:0.5s;
+    background: rgba(57, 172, 243, 0.5);
+
+}
+
+@keyframes colorchange{
+    from{background: rgba(57, 172, 243, 0)}
+    to{background: rgba(57, 172, 243, 0.5);}
+}
+
+/*Menus Deroulants*/
+
+.links {
+    background-color: rgba(255,255,255,0);
+    border: none;
+    font-size: 24px;
+}
+
+.menu {
+    position: relative;
+    right: auto;
+    display: inline-block;
+    background-color: rgb(44, 44, 44);
+}
+
+.linkbox_a {
+    display: none;
+    position: absolute;
+    background-color: rgba(255,255,255,0);
+    min-width: 128px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.linkbox_a a {
+    color: white;
+    background-color: rgb(44, 44, 44);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.linkbox_a a:hover {
+    animation-name: colorchange;
+    animation-duration:0.5s;
+    background-color: rgba(57, 172, 243, 0.5);
+}
+
+.menu:hover .linkbox_a {
+    display: block;
+}
+
+.menu:hover .links {
+    color: rgb(0, 0, 255);
+}
+
+.projlinks {
+    background-color: rgba(255,255,255,0);
+    border: none;
+    font-size: 18px;
+}
+
+.menu2 {
+    position: relative;
+    display: inline-block;
+    background-color: rgb(44, 44, 44);
+    border: none;
+}
+
+.linkbox_proj {
+    display: none;
+    position: absolute;
+    min-width: 128px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.linkbox_proj a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.linkbox_proj a:hover {
+    animation-name: colorchange;
+    animation-duration:0.5s;
+    background-color: rgba(57, 172, 243, 0.5);
+}
+
+.menu2:hover .linkbox_proj {
+    display: block;
+}
+
+.menu2:hover .projlinks {
+    color: rgb(0, 143, 153);
+}
+
+.projlinks:hover .linkbox_proj {
+    display: block;
+}
+
+.btmpad {
+    height: 200px;
+    color: rgba(255,255,255,0);
+}

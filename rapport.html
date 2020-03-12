@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Rapport</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h6 class="Webs_Header">Site web de Thilo Chalas</h6>
+        <h1 class="Page_Header">Rapport sur ce Projet</h1>
+        <center><img src="Images/html_photo.png" alt="Du code HTML sur un ecran" width= 100% class="photo_rapport"></center>
+        <div class="Infos_Bodytxt">
+            <h2>Le HTML</h2>
+            <p> Le langage HTML (HyperText Markup Language) permet de placer des elements sur une page web. Il permet au navigateur de 
+                savoir ce qu'il faut afficher et dans quel ordre les afficher. Le code HTML n'est pas un langage de programmation mais
+                un langage compose de balises definissant le contenu compose d'une serie d'elements. Un Voici a quoi servent certaines 
+                balise de code HTML:
+            </p>
+            <ul>
+                <li>< !DOCTYPE html >: dit au navigateur que le document (= la page) est code en HTML</li>
+                <li>< head >: permet de definir certaines proprietes de la page qui ne s'affichent pas sur celle-ci. Voici quelques elements pouvant etre trouves dans le head:
+                    <ul>
+                        <li>< meta charset="utf-8" >: Definit l'encodage a utiliser pour les characteres</li>
+                        <li>< title >: Definit ce qui se trouve en titre sur l'onglet</li>
+                        <li>< link rel="stylesheet" href="style.css" >: Definit quel fichier css (ici style.css) utiliser pour definir les styles</li>
+                    </ul>
+                </li>
+                <li>< div >: permet de mettre plusieurs elements dans un groupe (je crois)</li>
+                <li>< h1 a h6 >: Permet de definir des elements comme des titres de plus ou moins grande importance (h1= plus gros titre et h6= plus petit)</li>
+                <li>< p >: Designe du texte comme un paragraphe</li>
+                <li>< a href="url vise" >: Permet de definir un element comme etant un lien vers un url donne dans href</li>
+                <li>< img src="Image" >: Permet d'ajouter une image dont la source est definie apres src</li>
+                <li>< button >: definit un element comme un bouton</li>
+                <li>< iframe >: permet d'integrer un document HTML dans un document HTML</li>
+                <li>< html >: definit la partie du document code en html</li>
+                <li>< body >: definit la partie du document qui compose le corps du texte</li>
+                <li>< video src="Video" type="type" >: permet d'integrer une video dans le site web. La source de la video est definie apres src et le format de la video apres type</li>
+                <li>class="" permet de definir des elements comme appartenant a une classe (utile surtout pour le css)</li>
+            </ul>
+            <h2>Le CSS</h2>
+            <p> Le CSS ou Cascading Style Sheets est le code qui permet de definir a quoi vont ressembler les differentes choses 
+                de la page que nous avons code en HTML. Avec le CSS on peut definir les polices, les positions, les arrieres plans,
+                les tailles, etc. de la page. On peut aussi faire changer des choses lorsque le curseur passe dessus et meme creer 
+                des animations basiques (comme le changement de couleur sur la page Accueuil). Lorsqu'on veut appliquer des effets 
+                a un type d'elements on ecrit:
+            </p>
+            <p class="rapprt">balise (sans les <>) {code css}</p>
+            <p class="rapprt">ou</p>
+            <p class="rapprt">.classe {code css}</p>
+            <p>Quelques elements CSS:</p>
+            <ul>
+                <li>background: permet de definir l'arriere plan d'un element</li>
+                <li>color: permet de definir la couleur de l'ecriture (background-color permet de definir la couleur d'un arriere plan)</li>
+                <li>text-align: permet de definir l'alignement du texte</li>
+                <li>margin: definit les marges d'un element</li>
+                <li>width/ height: definit la hauteur et la largeur d'un element</li>
+                <li>right/ top/ left/ bottom: definit le placement d'un element</li>
+                <li>display: montre ou cache des elements</li>
+                <li>float: permet de faire se deplacer de elements vers un cote de l'ecran</li>
+                <li>et beaucoup d'autres</li>
+            </ul>
+            <h3>Conclusion</h3>
+            <p>Le HTML et le CSS permettent de creer des pages web. Ca prend beaucoup de temps si on
+                veut faire une belle page avec des elements plus ou moins developpes (les menus defilants 
+                restent un peu de la magie pour moi :)). Je trouve le HTML/CSS moins interessant et moins amusant 
+                que la programmation avec python et du coup je pense que le java sera interessant a etudier...
+            </p>
+        </div>
+        <h4 class="h4">Liens:</h4>
+        <center>
+            <div class="menu">
+                <button class="links"><a href="index.html">Accueuil</a></button>
+                <div class="linkbox_a">
+                    <a href="infos_perso.html">Infos perso</a>
+                    <a href="rapport.html" class="rpprt">Rapport</a>
+                    <div class="menu2">
+                        <button class="projlinks"><a href="projets.html" class="projlinks">Projets</a></button>
+                        <div class="linkbox_proj">
+                            <a href="plantes_fractales.html">Plantes Fractales</a>
+                            <a href="binaire.html">Le Binaire</a>
+                            <a href="algo_tri.html">Algorithmes de Tri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <h1 class="btmpad"> . </h1>
+    </body>
+</html>

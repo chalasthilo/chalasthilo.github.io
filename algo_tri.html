@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Les algorithmes de tri</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h6 class="Webs_Header">Site web de Thilo Chalas</h6>
+        <h1 class="Page_Header">Les algorithmes de tri</h1>
+        <div class="Infos_Bodytxt">
+            <h2>Les bases</h2>
+            <p>Trier une liste de nombres par ordre croissant semble etre une tache simple pour nous en tant qu'etres humains.
+                Cette tache est cependant plus compliquee pour un ordinateur puisqu'il ne peut comarer les elements que 2 par 
+                2. Nous avons etudie quelques algorithmes permettant de trier des listes de valeurs par ordre croissant.
+            </p>
+            <h2>Un algorithme naif: Le tri par selection</h2>
+            <p>Le tri par selection est le premier algorithme de tri auquel on pense quand on veut creer un algorithme de tri.
+                Il consiste a trouver l'element le plus petit de la liste puis de le placer au debut de celle-ci. On cherche 
+                ensuite l'element le plus petit parmi les autres elements puis on place celui-ci apres le dernier element place 
+                en debut de liste.
+            </p>
+            <img src="Images/Selection-Sort-Animation.gif">
+            <h2>Le tri par insertion</h2>
+            <p>Le tri par insertion est une autre facon de trier une liste de valeurs. Le tri par insertion est generalement 
+                plus rapide que le tri par selection meme s'il est aussi lent que celui-ci dans le pire des cas. Le fonctionnement
+                du tri par insertion est le plus simple a comprendre en le visualisant:
+            </p>
+            <img src="Images/Insertion-sort-example.gif">
+            <h2>Fiche d'explication sur les algorithmes de tri</h2>
+            <div class="doccontainer">
+            <iframe src="https://docs.google.com/document/d/e/2PACX-1vSJUH6KHOS6e-ckw3CbOhI9o4Ix8diRc-pl9o9Og6Vgieu2Y0k7SfuRkwm0zR1lrA-GDtQRu7HwwgTQ/pub?embedded=true" class="docs"></iframe></div>
+            <h2>Bonus! Le tri fusion</h2>
+            <p>Pour l'explication du tri fusion je vous invite a consulter <a href="https://fr.wikipedia.org/wiki/Tri_fusion">wikipedia</a>.</p>
+            <p>Voici un algorithme pour le <strong>tri fusion</strong> que j'ai ecrit:</p>
+            <p><a href="Algorithmes/triListe_Eleves.py">Algorithmes de tri (dont le tri fusion)</a></p>
+            <p><a href="Algorithmes/Algos_Tri.py">Tri fusion avec visualisation partielle des etapes</a></p>
+            <h2>Comparaison des temps d'execution des differents algorithmes</h2>
+            <p>Listes d'elements au hasard de 0 a 10000 valeurs (multiplier les avleurs de l'axe des x par 100). Le temps donne sur l'axe y est en secondes.</p>
+            <img src="Images/Fusion_vs_selection_vs_Insertion.png">
+        </div>
+        <h4 class="h4">Liens:</h4>
+        <center>
+            <div class="menu">
+                <button class="links"><a href="index.html">Accueuil</a></button>
+                <div class="linkbox_a">
+                    <a href="infos_perso.html">Infos perso</a>
+                    <a href="rapport.html" class="rpprt">Rapport</a>
+                    <div class="menu2">
+                        <button class="projlinks"><a href="projets.html" class="projlinks">Projets</a></button>
+                        <div class="linkbox_proj">
+                            <a href="plantes_fractales.html">Plantes Fractales</a>
+                            <a href="binaire.html">Le Binaire</a>
+                            <a href="algo_tri.html">Algorithmes de Tri</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <h1 class="btmpad"> . </h1>
+    </body>
+</html>
