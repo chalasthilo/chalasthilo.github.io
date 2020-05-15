@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Cartographie</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h6 class="Webs_Header">Site web de Thilo Chalas</h6>
+        <h1 class="Page_Header">Cartographie et traitement de donnees</h1>
+        <center><img src="Images/Carte.png" alt="Une Carte generee avec folium" width= 1024px></center>
+        <div class="Infos_Bodytxt">
+            <h2>Presentation Generale</h2>
+            <p>Le but principal de ce projet etait d'utiliser nos connaissances en gestion de donnees (principalement en CSV) afin de traiter de l'open data. 
+                L'idee etait de placer les donnees/ce que l'on a obtenu avec les donnees sur une carte avec une bibliotheque de cartographie (folium). Apres 
+                avoir cherche des tableaux de donnees parmi plusieurs sites d'open data j'ai decide d'utiliser un tableau de donnees donnant la quantite d'emissions 
+                de CO2 par pays et par annee entre 1750 et 2014 (les pays n'ont pas tous des donnees a partir de 1750). Je me suis donc pose trois questions:
+            </p>
+            <ul>
+                <li>Ou se concentrent les emissions de CO2 dans le monde?</li>
+                <li>Quels sont les pays qui polluent le plus par habitant?</li>
+                <li>A quel point est-ce que la pollution par habitant est plus elevee dans les pays developpes par rapport aux pays moins developpes?</li>
+            </ul>
+            <h2>Base de donnees</h2>
+            <p>
+                Pour ce projet j'ai utilise plusieurs bases de donnees pour les differents tableaux de donnees. Tout d'abord, j'ai utilise la base de donnees du CDIAC (Carbon 
+                Dioxide Information Analysis Center) qui regroupe des donnees sur les emissions de CO2 dans le monde ainsi que des donnees relatives a l'environnement... C'est un organisme 
+                du Department of Energy des etats-unis. 
+            </p>
+            <p>
+                L'autre base de donnees que j'ai utilisee est la base de donnees (a peu pres) Github. Github est un site internet appartenant a Microsoft base sur l'open source ou les utilisateurs 
+                publient leurs projets libres de droits. J'ai recupere deux tableaux pour mon projet parmi les projets presents sur Github:
+            </p>
+            <ul>
+                <li>Un tableau reliant le nom (en anglais) des pays et leurs codes d'identification ISO a 3 caracteres</li>
+                <li>Un tableau contenant des coordonnees pour dessiner les frontieres des pays.</li>
+            </ul>
+            <h2>Presentation de la demarche projet</h2>
+            <p>Une fois que j'avais trouve mes donnees j'ai commence a experimenter avec folium pour decouvrir les differentes fonctionalites (creer une carte, ajouter des elements sur la carte,...). 
+                J'ai ensuite decide de creer une carte ou les pays sont colores pour representer la quantite d'emissions de CO2 (plus tard j'ai change pour la quantite de CO2 par habitant) (Choropleth). 
+                J'ai donc commence a m'ocuper du traitement de donnees. J'ai d'abord recupere les donnees du fichier contenant les emissions CO2 grace a CSVReader. J'ai rencontre un probleme deja ici car 
+                le fichier avec les emissions CO2 contenait seulement le nom des pays mais pas leurs codes ISO alpha-3. J'ai donc cree la fonction dataprep (fichier Donnees.py) qui renvoie une liste de 
+                dictionnaires contenant le pays, son ISO alpha-3 (obtenu avec la sous fonction ISO), l'annee, les emissions totales et les emissions par habitant. J'ai ensuite commence a creer la carte 
+                choroplethe tout d'abord en utilisant un fichier deja en GeoJSON et avec pandas pour voir ce que j'obtenais. J'ai ensuite commence a ecrire les fonctions pour repliquer ce que fait 
+                folium.Choropleth pour colorer la carte. J'ai donc cree les fonctions co2percapitadata (qui renvoie les emissions par habitant de chaque pays en 2014), color (qui attribue une couleur
+                selon la valeur de maniere lineaire entre le blanc pour le minimum (255,255,255) et le rouge pour le maximum (255,0,0) pour chaque pays), et la fonction geojson_formater (qui cree un fichier 
+                geoJSON a partir des valeurs que j'avais pour les frontieres des pays)(j'ai d'ailleurs du rajouter csv.field_size_limit(sys.maxsize) a csvReader car le fichier avec les frontieres etait trop 
+                grand). J'ai donc avec ceci deux listes de dictionnaires: Une qui associe l'ISO alpha-3 de chaque pays a un contour GeoJSON et l'autre qui associe l'ISO alpha-3 de chaque pays a ses 
+                emissions CO2/habitant et la couleur correspondante. J'ajoute ensuite simplement chaque pays comme un element geoJSON en precisant la couleur de fond. Apres avoir cree ma carte choroplete 
+                j'ai voulu rajouter des popups avec des graphiques montrant les donnees liees au CO2 pour chaque pays. Pour cela j'ai regroupe les donnees par pays dans une nouvelle liste de dictionnaires. 
+                J'ai ensuite cree un template JSON pour donner a VegaLite. J'ai ensuite ajoute le graphique a chaque element GeoJSON correspondant au pays du graphique.
+            </p>
+            <h2>Explication des programmes</h2>
+            <p>La creation de la carte repose principalement sur les fichiers csvReader.py, Donnees.py, et Cartographie.py. csvReader est la bibliotheque que nous avons creee en cours qui permet de 
+                lire et ecrire des documents CSV avec python. Donnees.py est une librairie que j'ai cree qui sert principalement a la gestion de donnees qui sont ensuite utilisees pour creer la carte. 
+                Enfin, Cartographie.py est l'algorithme principal qui genere et sauvegarde la carte.
+            </p>
+            <h3>Donnees.py</h3>
+            <p>La plupart des fonctions dans Donnees.py gerent le tri et l'organisation de donnees pour les utiliser lors de la generation de la carte. La fonction color effectue cependant des calculs 
+                pour determiner la couleur de chaque pays. Etudions cette fonction:
+            </p>
+            <img src="Images/Fonction_color.png" alt="La fonction color">
+            <h3>Cartographie.py</h3>
+            <p>La majorite des choses importantes se passent dans Cartographie.py etudions ce qu'il s'y passe:</p>
+            <ul>
+                <li>
+                    <p>Tout d'abord on importe toutes les librairies et les valeurs:</p>
+                    <img src="Images/Cartographie_1.png" alt="Du code">
+                </li>
+                <li>
+                    <p>Ensuite on prepare les donnees et la carte a remplir:</p>
+                    <img src="Images/Cartographie_2.png" alt="Du Code">
+                </li>
+                <li>
+                    <p>Puis on ajoute tous les elements importants sur la carte</p>
+                    <img src="Images/Cartographie_3.png" alt="Du code">
+                </li>
+                <li>
+                    <p>Enfin on sauvegarde la carte:</p>
+                    <img src="Images/Cartographie_4.png" alt="Du Code">
+                </li>
+            </ul>
+            <h2>Voici la carte obtenue:</h2>
+            <p>Plus la couleur d'un pays est foncee/rouge, plus la pollution par habitant est elevee. Sur les graphiques la ligne rouge correspond aux emissions totales et la ligne bleue 
+                correspond aux emissions par habiant.
+            </p>
+            <p><a href="map.html">Voir la carte sur une page separee</a></p>
+            <iframe src="map.html" width="1000px" height="600px">Carte folium integree</iframe>
+            <h2>Quelques fichiers</h2>
+            <ul>
+                <li>
+                    <p>Les fichiers CSV</p>
+                    <ul>
+                        <li>
+                            <a href="Files/nation.1751_2014.csv">Emissions CO2 par pays et par annee</a>
+                        </li>
+                        <li>
+                            <a href="Files/ISO.csv">Pays et leurs codes ISO</a>
+                        </li>
+                        <li>    
+                            <a href="Files/Pointsfrontierespays.csv">Coordonnees des frontieres des pays</a>
+                        </li>
+                        <li>    
+                            <a href="Files/Codes_et_CSV.zip">Fichier compresse contenant les codes et autres fichiers</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Les Codes</p>
+                    <ul>
+                        <li>
+                            <a href="Algorithmes/csvReader.py">Librairie de lecture csv</a>
+                        </li>
+                        <li>
+                            <a href="Algorithmes/Donnees.py">Librairie/code de traitement de donnees</a>
+                        </li>
+                        <li>
+                            <a href="Algorithmes/Cartographie.py">Code generant la carte</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h4 class="h4">Liens:</h4>
+        <center>
+            <div class="menu">
+                <button class="links"><a href="index.html">Accueuil</a></button>
+                <div class="linkbox_a">
+                    <a href="infos_perso.html">Infos perso</a>
+                    <a href="rapport.html" class="rpprt">Rapport</a>
+                    <div class="menu2">
+                        <button class="projlinks"><a href="projets.html" class="projlinks">Projets</a></button>
+                        <div class="linkbox_proj">
+                            <a href="plantes_fractales.html">Plantes Fractales</a>
+                            <a href="binaire.html">Le Binaire</a>
+                            <a href="algo_tri.html">Algorithmes de Tri</a>
+                            <a href="cartes_CSV.html">Cartes et CSV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </center>
+        <h1 class="btmpad"> . </h1>
+    </body>
+</html>
